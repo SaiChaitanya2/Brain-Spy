@@ -1,0 +1,14 @@
+I have solved Assignment 1 in 3 ways :-
+# In all the methods the common part was to first input the image and then convert them into grey scale from cv2 library. And then we have to blur the image a bit to reduce the noice in our final output.
+# Then we can use some filters to detect the edges.
+
+#1 In our first method we blured it by an inbuilt filter gaussianblur from cv2 library and then applied laplacian filter which manipulates the pixel values by calculating gradient values and detecting edges.
+Then we get a light picture of edges with some unwanted edges which are removed by histerisis. I used thresholding to darken the wanted edges.
+
+#2 In our second method we did the blur and laplacian filters manually. The blur filter is as shown a 3x3 matrix of 1/9. We just change the pixel value at all locations to the average of the pixel values of all the 9 pixels of the 3x3 matrix with our pixel at center.This gives a blur effect. 
+Then we apply the filter witha 3x3 matrix with center 4 and sides -1 and corners 0 which is also called 4-neighbour laplacian. We can also use 8-neighbour laplacian which is a 3x3 matrix with 8 at mid and all other -1.
+I also experimented by sharpening the image and doing edge detection which I found better result.
+
+#3 In this case I used sobel filter in the place of laplace filter but I felt laplace filter was good.
+
+#And finally we use imshow from cv2 to display the image and the wait key is so that until I tap any key the image will be there and destroyallwindos is that when I tap any key the image will be gone.
